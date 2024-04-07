@@ -1,0 +1,61 @@
+# authentication and authorization
+
+// frontend hlka hona chaiye sarra bhari kam backend mai
+
+authentication --> identity verification --> to verify the identity of the coming user request --> that is to verify the role ( is it admin || is it stduent or many more ) then it come as an register user on my website
+
+#authorization --> to verify the permision of what like it is authorize to see admin dasboard or to see student  dashboard or both of them
+
+process --> to authticate and authorize
+
+# JWT and Cookies Authentication and Authorization
+
+JWT (JSON Web Tokens) and Cookies are commonly used for authentication and authorization in web applications.
+
+JWT is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted.
+
+The information in a JWT typically includes the following:
+
+1. Header: Contains metadata about the type of token and the cryptographic algorithms used.
+2. Payload: Contains the claims or the pieces of information being passed about the user and any additional data.
+3. Signature: Used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
+
+Cookies, on the other hand, are small pieces of data stored on the user's computer by the web browser while browsing a website. They are designed to be a reliable mechanism for websites to remember stateful information or to record the user's browsing activity.
+
+In the context of authentication and authorization, cookies can be used to store JWTs or session identifiers that can be used to identify and authenticate the user on subsequent requests.
+
+## when u log in server give a jwt token to client as a response and this token hav ethe user authorization
+
+## cokkies -->a txt files that is   used to store data on local machine like jwt token , add cart items etc
+JWT Token:
+
+JWT stands for JSON Web Token. It's a compact, URL-safe means of representing claims to be transferred between two parties.
+When a user logs into a server, the server generates a JWT token for the client. This token contains a payload, which is a set of "claims" about the user. These claims can include the user's ID, role, and other authorization information.
+The server signs the JWT with its private key, which allows the recipient to verify that the token is legitimate.
+The client stores this token and sends it along with future requests to the server. The server can then verify the token and use the claims it contains to authorize the user's actions.
+Cookies:
+
+A cookie is a small piece of data stored on the user's computer by the web browser while browsing a website.
+Cookies are used to remember information about the user, such as login information, items in a shopping cart, or other user preferences.
+In the context of JWT, a common practice is to store the JWT token in a cookie. This allows the token to be automatically included with every request to the server, which simplifies the process of sending the token.
+However, storing JWTs in cookies can make them vulnerable to certain types of attacks, such as Cross-Site Scripting (XSS) and Cross-Site Request Forgery (CSRF). Therefore, it's important to implement appropriate security measures when using this approach.
+
+
+first fetch data from the front and the verify is it not bull and the email is write or wrong...
+
+Creating Cookies in Backend:
+
+In the backend, cookies can be created using various programming languages. Here's a general process:
+
+1. After the user has been authenticated, the server creates a cookie. This can be a simple key-value pair, or it can be a more complex object that includes additional attributes such as the expiration date, path, domain, and security flags.
+
+2. The server then sends this cookie to the client in the Set-Cookie HTTP response header. The client's web browser will automatically store this cookie and include it in subsequent requests to the server.
+
+3. On subsequent requests, the server can read the cookie from the Cookie HTTP request header, verify its validity, and use the information it contains for authorization.
+
+Here's an example in Node.js using the Express framework and the cookie-parser middleware:
+
+
+//using bcrpt to hash my password to secure...
+
+//forujain ka cryptograpy chapter...
